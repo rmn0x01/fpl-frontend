@@ -1,0 +1,10 @@
+<template>
+    <div class="welcome">
+        <h1>Welcome page</h1>
+    </div>
+</template>
+<script>
+export default {
+    name: 'Welcome',
+}
+</script>
