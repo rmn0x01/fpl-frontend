@@ -1,7 +1,18 @@
 <template>
-    <div id="nav">
-        <router-link to="/">Home</router-link> |
-        <router-link to="/about">About</router-link>
+    <div>
+        <b-navbar type="dark" variant="dark">
+            <b-navbar-nav>
+                <b-nav-item to="/welcome">Welcome</b-nav-item>
+                <b-nav-item to="/">Dashboard</b-nav-item>
+                <b-nav-item to="about">About</b-nav-item>
+
+                <b-nav-item-dropdown text="User" right>
+                    <b-dropdown-item to="/login">Login</b-dropdown-item>
+                    <b-dropdown-item to="/register">Register</b-dropdown-item>
+                    <b-dropdown-item to="/logout">Logout</b-dropdown-item>
+                </b-nav-item-dropdown>
+            </b-navbar-nav>
+        </b-navbar>
     </div>
 </template>
 
@@ -10,19 +21,3 @@ export default {
     name: 'NavBar'
 }
 </script>
-
-<style scoped>
-
-#nav {
-    padding: 30px;
-}
-
-#nav a {
-    font-weight: bold;
-    color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-    color: #42b983;
-}
-</style>
