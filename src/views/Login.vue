@@ -22,6 +22,7 @@ export default {
             axios.get('http://127.0.0.1:3000/')
                 .then(response => {
                     console.log(response.data)
+                    this.$emit('done-login');
                 })
                 .catch(error => {
                     console.error(error)
