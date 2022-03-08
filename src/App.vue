@@ -1,6 +1,6 @@
 <template>
     <div id="app">
-        <nav-bar :is-logged-in="isLoggedIn" @logged-in-updated="updateLoggedIn"></nav-bar>
+        <nav-bar></nav-bar>
         <router-view/>
     </div>
 </template>
@@ -10,16 +10,6 @@ import NavBar from '@/components/NavBar.vue'
 export default {
     components: {
         NavBar,
-    },
-    data(){
-        return {
-            isLoggedIn: false
-        }
-    },
-    methods: {
-        updateLoggedIn(isLoggedIn){
-            this.isLoggedIn = isLoggedIn
-        }
     }
 }
 </script>
