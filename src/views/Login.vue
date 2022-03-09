@@ -3,7 +3,6 @@
 </template>
 <script>
 import AuthForm from '../components/AuthForm.vue'
-import axios from 'axios'
 export default {
     name: 'Login',
     components: {
@@ -17,13 +16,11 @@ export default {
     },
     methods: {
         submitLogin(email, password){
-            console.log(email);
-            console.log(password);
-            axios.get('http://127.0.0.1:3000/')
-                .then(response => {
-                    console.log(response.data)
-                    this.$emit('done-login');
-                })
+            console.log(email)
+            console.log(password)
+            const user_id = email
+            this.$store.dispatch('login', {user_id, password})
+                .then(() => this.$router.push('/welcome'))
                 .catch(error => {
                     console.error(error)
                 })

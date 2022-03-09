@@ -7,13 +7,13 @@
                 <b-nav-item to="about">About</b-nav-item>
 
                 <b-nav-item-dropdown text="User" right>
-                    <b-dropdown-item v-if="this.$store.state.isLoggedIn" to="/logout">Logout</b-dropdown-item>
+                    <b-dropdown-item v-if="this.$store.getters.isLoggedIn"> <a @click="logout">Logout</a></b-dropdown-item>
                     <div v-else>
                         <b-dropdown-item to="/login">Login</b-dropdown-item>
                         <b-dropdown-item to="/register">Register</b-dropdown-item>
                     </div>
                 </b-nav-item-dropdown>
-                <b-nav-item v-if="this.$store.state.isLoggedIn"> Hello, User</b-nav-item>
+                <b-nav-item v-if="this.$store.getters.isLoggedIn"> Hello, {{ this.$store.getters.readUser.user_nm }}</b-nav-item>
                 <b-nav-item v-else> Hello, Guest </b-nav-item>
             </b-navbar-nav>
         </b-navbar>
@@ -27,6 +27,12 @@ export default {
     name: 'NavBar',
     components: {
         LoginStateToggle
+    },
+    methods: {
+        logout() {
+            this.$store.dispatch('logout')
+                .then(() => this.$router.push('/login'))
+        }
     }
 }
 </script>

@@ -8,7 +8,7 @@
             >
             <form @submit.prevent="authSubmit">
                 <b-card-text>
-                    <b-form-input v-model.lazy.trim="email" type="email" placeholder="Email"></b-form-input>
+                    <b-form-input v-model.lazy.trim="email" type="text" placeholder="Email"></b-form-input>
                     <b-form-input class="mt-2" v-model.lazy.trim="password" type="password" placeholder="Password"></b-form-input>
                 </b-card-text>
                 <b-button variant="primary" type="submit">{{titleMsg}}</b-button>

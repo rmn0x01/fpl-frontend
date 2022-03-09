@@ -10,7 +10,13 @@ import NavBar from '@/components/NavBar.vue'
 export default {
     components: {
         NavBar,
-    }
+    },
+    created() {
+        console.log('Starting Token: ')
+        console.log(this.$store.getters.readToken)
+        console.log('Starting User: ')
+        console.log(this.$store.getters.readUser)
+    },
 }
 </script>
 
